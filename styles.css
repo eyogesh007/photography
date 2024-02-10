@@ -119,6 +119,64 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for a better look */
 }
 
+.menu-btn {
+    display: none; /* Initially hide the menu button */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: #555;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.filter-btn:hover {
+    color: whitesmoke;
+    background-color: #555;
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Show the menu button on smaller screens */
+    }
+
+    nav {
+        display: none; /* Hide the navigation bar by default on smaller screens */
+    }
+
+    /* Show the navigation bar when menu button is clicked */
+    .show-menu {
+        display: flex !important;
+        flex-direction: column;
+    }
+}
+
 /* Global styles */
 * {
     box-sizing: border-box;
@@ -145,7 +203,18 @@ h1 {
     padding: 20px;
     padding-bottom: 80px;
 }
+@media screen and (max-width: 768px) {
+    #gallery {
+        grid-template-columns: repeat(2, 1fr); /* Display 2 photos per row on smaller screens */
+    }
+}
 
+/* Define a media query for even smaller screens */
+@media screen and (max-width: 480px) {
+    #gallery {
+        grid-template-columns: repeat(1, 1fr); /* Display 1 photo per row on even smaller screens */
+    }
+}
 /* Photo card styles */
 .photo-card {
     display: flex; /* Use flexbox for positioning */
