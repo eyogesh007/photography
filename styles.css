@@ -120,17 +120,30 @@ header {
 }
 
 .menu-btn {
-    display: none; /* Initially hide the menu button */
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #555;
+    position: fixed;
+    top: 15%;
+    right: 5%;
     cursor: pointer;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: var(--color-grey-4);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: all 0.1s ease-in-out;
+    border: none;
+}
+
+.menu-btn:active {
+    transform: translateY(-8px);
+}
+
+.menu-btn i {
+    font-size: 1.5rem;
+    color: var(--color-grey-2);
+    pointer-events: none;
 }
 
 /* Navigation styles */

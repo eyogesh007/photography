@@ -18,7 +18,7 @@
             <i class="fas fa-adjust"></i>
         </div>
         <button id="menuBtn" class="menu-btn" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
+            <i id="menuIcon" class="fas fa-bars"></i>
         </button>
         <nav id="navbar">
             <button class="filter-btn" data-filter="all">All</button>
@@ -59,6 +59,11 @@
 function toggleMenu() {
             var navbar = document.getElementById("navbar");
             navbar.classList.toggle("show-menu");
+            var menuIcon = document.getElementById('menuIcon');
+
+    // Toggle the class to change the icon
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-times');
         }
 function toggleDarkMode() {
             // Toggle the dark-mode class on the body element
