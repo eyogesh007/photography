@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Yogesh's Gallery: Moments in Focus</h1>
+        <div class="theme-btn" onclick="toggleDarkMode()">
+            <i class="fas fa-adjust"></i>
+        </div>
+        <nav>
+            <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="landscape">Landscape</button>
+            <button class="filter-btn" data-filter="portrait">Portrait</button>
+            <button class="filter-btn" data-filter="nature">Nature</button>
+            <!-- Add more categories as needed -->
+        </nav>
+    </header>
+    <main id="gallery">
+        <!-- Photo cards will be dynamically added here -->
+    </main>
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+    <footer>
+        <p>&copy; 2024 Yogesh's Photography Portfolio. All rights reserved.</p>
+        <!-- Social media icons -->
+        <a href="https://www.linkedin.com/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+    window.addEventListener('scroll', function() {
+    var footer = document.querySelector('footer');
+    var scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var scrollPosition = window.scrollY;
+    var bottomOffset = 50; // Adjust this value as needed
+
+    if (scrollPosition >= scrollableHeight - bottomOffset) {
+        footer.style.display = 'block'; // Show footer when scrolled near the bottom
+    } else {
+        footer.style.display = 'none'; // Hide footer otherwise
+    }
+});
+function toggleDarkMode() {
+            // Toggle the dark-mode class on the body element
+            document.body.classList.toggle('dark-mode');
+
+            // Save user preference in local storage
+            const isDarkModeEnabled = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkModeEnabled', isDarkModeEnabled);
+        }
+
+
+        function openImage(img) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("enlargedImage");
+    modal.style.display = "block";
+    modalImg.src = img.src;
+}
+
+function closeImageModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fifteen puzzle maker</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="shortcut icon" href="icon.jpg" type="image/x-icon">
+<meta content="#c4cebb" name="theme-color" charset="UTF-8">
+<meta name="description" content="A simple implementation of the classic mini-game Fifteen Sliding Puzzle, using HTML5 DOM document elements and without using Canvas or third party libraries.">
+<meta name="keywords" content="15Puzzle, js, Open Source, HTML5, Sliding, web, base">
+<meta name="author" content="Kirill Live">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
+
+<style>
+    .dark-mode {
+            /* Define your dark mode styles here */
+            background-color: #1D2A35;
+            color: #fff;
+        }
+        .dark-mode input{
+            color: white;
+        }
+    .theme-btn {
+  top: 1%;
+  right: 3%;
+  position: fixed;
+  cursor: pointer;
+  background-color: var(--color-grey-4);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: .7rem 0;
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.theme-btn:active {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.theme-btn i {
+  font-size: 2rem;
+  color: var(--color-grey-2);
+  pointer-events: none;
+}
+body {
+    margin-top: 50px;
+    padding: 0;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color:#FFFFFF;
+    
+}
+h1{
+    font-size:x-large;
+    font-family: 'Aladin';
+}
+h2{
+    font-size:large;
+    font-family: 'Aladin';
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Add space between the two divs */
+}
+
+#fifteen, #fifteen1 {
+    
+    min-width: 0;
+    box-sizing: border-box;
+    margin: 15px 15px; /* Adjust margin as needed */
+    max-width: 45%; /* Adjust the max-width as needed */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center; /* Center items vertically */
+    }
+
+    #fifteen, #fifteen1 {
+        margin: 5px 0; /* Adjust margin for vertical spacing */
+        max-width: 100%; /* Allow divs to take full width on smaller screens */
+    }
+}
+
+*{
+	font-family:Arial;
+    font-size:12px;
+	border-collapse:collapse;
+	border:none;
+	margin:0;
+	padding:0;
+	border-spacing:0px;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	outline:none;
+}
+
+
+.input_text{
+	border:0;
+	font-family:Arial;
+	font-size:12px;
+	-webkit-appearance:none;
+	border-bottom:1px solid #c4cebb;
+	background-color:transparent;
+	cursor:text;
+	height:28px;
+	width:100%;
+	-webkit-touch-callout:text;-webkit-user-select:text;-khtml-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;
+}
+.button{border-radius:8px;width:100%;height:32px;background-color:#c4cebb;display:grid;align-content: center;justify-content: center;cursor:pointer;}
+.button:hover{background-color:#dfebd5;}
+.switch {
+  position:relative;
+  display:inline-block;
+  width:50px;
+  height:24px;
+}
+.switch input{opacity:0;width:0;height:0;}
+.slider{
+  position:absolute;
+  cursor:pointer;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:#c4cebb;
+  transition:.2s;
+  border-radius:12px;
+}
+.slider:before{
+  position:absolute;
+  content:"";
+  height:18px;
+  width:18px;
+  left:3px;
+  bottom:3px;
+  background-color:#fff;
+  transition:.2s;
+  border-radius:12px;
+}
+input:checked+.slider{background-color:#dfebd5;}
+input:checked+.slider:before{transform:translateX(26px);}
+</style>
+</head>
+<body>
+    
+    <!-- <div id="originalImageContainer" style="position: fixed; top: 0; left: 0;">
+        <img id="originalImage" style="display: none;">
+    </div> -->
+    <h1 style="text-align: center;">WELCOME TO THE PUZZLE PARADISE</h2>
+        <br>
+        <br>
+        <br>
+    <div class="container"><div>
+        <h2 style="text-align: center;">Navigate</h2><br>
+    <div id='fifteen'></div>
+</div>
+<div><h2 style="text-align: center;">Destination</h2><br>
+    <div id="fifteen1">    </div>
+</div>
+</div>
+<div class="theme-btn" onclick="toggleDarkMode()">
+    <i class="fas fa-adjust"></i>
+</div>
+<br><br>
+<label for="difficulty" style="font-weight: bold; font-size: 14px; margin-right: 10px;">Craft Your Difficulty:</label>
+<input id="difficulty" onchange="setup.puzzle_fifteen.diff=this.value;fifteen_update();" value="100" class="input_text" type="text" style="padding: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+
+<br><br>
+   <h2 style="text-align: center;">OR</h2>
+   <br><br>
+<button type="button" class="btn btn-primary" onclick="toggleNumber()">Simplify by arranging with Numbers </button>
+<br><br>
+<script>
+        function toggleNumber() {
+        setup.puzzle_fifteen.number = !setup.puzzle_fifteen.number; // Toggle the boolean value
+        fifteen_update(); // Update the puzzle display
+    }
+ function toggleDarkMode() {
+            // Toggle the dark-mode class on the body element
+            document.body.classList.toggle('dark-mode');
+
+            // Save user preference in local storage
+            const isDarkModeEnabled = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkModeEnabled', isDarkModeEnabled);
+        }
+
+        // Check if dark mode is enabled from local storage
+        const darkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
+
+        // Apply dark mode if it was enabled previously
+        if (darkModeEnabled) {
+            document.body.classList.add('dark-mode');
+        }       
+
+     const params = new URLSearchParams(window.location.search);
+const gameId = params.get('gameId');
+var setup={
+     puzzle_fifteen:{
+        diff:300, // number of movements of the slots for shuffling pictures
+        size:[512,640], // element size "fifteen" in pixels only
+        grid:[3,4], // the number of squares in the height and width of the picture
+        fill:false, // Stretching the area with the game to fit the element is recommended for fullscreen
+        number:false, // Slot sequence number
+        art:{
+            url:gameId, // path to the picture (you can use any format of supported browsers, gif-animation of svg)
+            ratio:false // enlarge the picture in height or width
+        },
+        // optional elements
+        keyBoard:true, // Control using the keys on the keyboard
+        gamePad:true, // Control using the joystick on the Gamepad
+        time:0.1, // block move animation time
+        style:"background-color:#c4cebb;display:grid;justify-items:center;align-items:center;font-family:Arial;color:#fff;border-radius:12px;font-size:32px;" // style for puzzle square
+     }
+}
+
+// function loadOriginalImage() {var img = document.getElementById("originalImage");
+//             img.src = gameId; // Set the source of the original image
+//             img.onload = function () {
+//                 // Calculate the dimensions of the puzzle pieces
+//                 var puzzleSize = 4; // Assuming a 4x4 puzzle
+//                 var pieceWidth = img.width / puzzleSize;
+//                 var pieceHeight = img.height / puzzleSize;
+                
+//                 // Display only the part of the image that corresponds to the puzzle size
+//                 img.style.clip = `rect(0px, ${pieceWidth}px, ${pieceHeight}px, 0px)`;
+//                 img.style.display = "block"; // Show the original image
+//             }
+// }
+
+// // Call the function to load the original image
+// loadOriginalImage();
+
+slot_style.value=setup.puzzle_fifteen.style;
+var img_file=document.getElementById('img_file'),img=document.getElementById("art"),file;
+img_file.addEventListener('change',loadFiles);
+function loadFiles(e){
+    file=img_file.files[0];
+    adden_file();
+}
+function adden_file(){
+    setup.puzzle_fifteen.art.url=window.URL.createObjectURL(file)
+    img.src=setup.puzzle_fifteen.art.url;
+    img.onload=function(){setup.puzzle_fifteen.size=[img.width,img.height];auto_grid();auto_style();fifteen_update1();fifteen_update();}
+}
+function auto_grid(){
+    var s=setup.puzzle_fifteen
+    if(s.size[1]<s.size[0]){s.grid=[Math.round(s.size[0]/(s.size[1]/4))-1,3]}
+    else{s.grid=[3,Math.round(s.size[1]/(s.size[0]/4))-1]}
+    grid_width.value=s.grid[0];
+    grid_height.value=s.grid[1];
+    width.value=s.size[0];
+    height.value=s.size[1];
+}
+function auto_style(){
+    var s=setup.puzzle_fifteen,v,i;
+    if(s.size[1]<s.size[0]){v=Math.round((s.size[0]/s.grid[0])/16)}
+    else{v=Math.round((s.size[1]/s.grid[1])/16)}
+    d=s.style.split(";");
+    for(i=0;i<d.length;i++){
+        if(d[i].includes("border-radius")){s.style=s.style.replace(d[i],"border-radius:"+Math.round(v*1.5)+"px")}
+        else if(d[i].includes("font-size")){s.style=s.style.replace(d[i],"font-size:"+(v*3)+"px")}
+    }slot_style.value=s.style;
+}
+function fifteen_update(){
+    f.innerHTML = "";
+    ceation_slots();
+}
+function fifteen_update1()
+{
+    f1.innerHTML = "";
+     ceation_slots1();
+}
+
+function fifteen_build(){
+    var reader=new FileReader();
+    if(file){reader.readAsDataURL(file);}else{alert('Please upload a file with a picture')}
+    reader.onload=function(){setup.puzzle_fifteen.art.url=reader.result;gen_file();}
+    reader.onerror=function(error){alert('Error: '+error);}
+    function gen_file(){
+        var url="fifteen_puzzle.js";
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if(this.readyState==4&&this.status==200){
+                var html="data:text/json;charset=utf-8,"+encodeURIComponent("<!DOCTYPE html>\n<html>\n<head>\n<style>\n body{height:97vh;padding:0;display:grid;align-content:center;justify-content:center;}\n</style>\n</head>\n<body>\n<div id='fifteen'></div>\n<script>\n"+this.responseText.replace("setup.puzzle_fifteen",JSON.stringify(setup.puzzle_fifteen,null,'\t'))+"\n<\/script>\n<\/body>\n<\/html>");
+                var a=document.getElementById('dwonload');
+                a.setAttribute("href", html );
+                a.setAttribute("download","index.html");
+                a.click();
+            }
+        };
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send();
+        xmlhttp.onerror=function(){if(this.status==0){alert('runetime not loaded');}}
+    }
+}
+var drop = {
+    init:function(){
+        if (window.File&&window.FileReader&&window.FileList&&window.Blob) {
+            window.addEventListener("dragover",function(e){
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            window.addEventListener("drop",function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                file=e.dataTransfer.files[0];
+                adden_file();
+            });
+        }
+    },
+};
+window.addEventListener("DOMContentLoaded", drop.init);
+</script>
+<script src="fifteen_puzzle.js"></script> <!--path to file engine-->
+</body>
+</html>
