@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Fifteen puzzle maker</title>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="shortcut icon" href="icon.jpg" type="image/x-icon">
 <meta content="#c4cebb" name="theme-color" charset="UTF-8">
@@ -12,6 +13,25 @@
 <link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
 
 <style>
+    .centered-button-container {
+            text-align: center;
+            margin-top: 20px; /* Adjust as needed */
+        }
+        
+        /* Styling for the button */
+        .full-image-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px; /* Adjust as needed */
+            cursor: pointer;
+            border-radius: 8px;
+        }
     .dark-mode {
             /* Define your dark mode styles here */
             background-color: #1D2A35;
@@ -162,6 +182,48 @@ h2{
 }
 input:checked+.slider{background-color:#dfebd5;}
 input:checked+.slider:before{transform:translateX(26px);}
+/* Modal */
+/* Modal */
+#imageModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: 20px auto; /* Center the modal and add margin above the photo */
+    display: block;
+    max-width: 80%; /* Adjust the maximum width of the modal content */
+    max-height: calc(100% - 40px); /* Set maximum height of the modal content */
+}
+
+/* Close Button */
+.close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
 </style>
 </head>
 <body>
@@ -171,6 +233,13 @@ input:checked+.slider:before{transform:translateX(26px);}
     </div> -->
     <h1 style="text-align: center;">WELCOME TO THE PUZZLE PARADISE</h2>
         <br>
+        <div class="centered-button-container">
+            <button onclick="openImage()" class="full-image-button">Display Full Image</button>
+        </div>
+        <div id="imageModal">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" class="modal-content">
+        </div>
         <br>
         <br>
     <div class="container"><div>
@@ -194,6 +263,19 @@ input:checked+.slider:before{transform:translateX(26px);}
 <button type="button" class="btn btn-primary" onclick="toggleNumber()">Simplify by arranging with Numbers </button>
 <br><br>
 <script>
+    const params = new URLSearchParams(window.location.search);
+const gameId = params.get('gameId');
+    function openImage() {
+        console.log(gameId)
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = gameId; // Assign the photo URL directly to src
+    modal.style.display = 'block';
+}
+function closeImageModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
         function toggleNumber() {
         setup.puzzle_fifteen.number = !setup.puzzle_fifteen.number; // Toggle the boolean value
         fifteen_update(); // Update the puzzle display
@@ -215,8 +297,7 @@ input:checked+.slider:before{transform:translateX(26px);}
             document.body.classList.add('dark-mode');
         }       
 
-     const params = new URLSearchParams(window.location.search);
-const gameId = params.get('gameId');
+     
 var setup={
      puzzle_fifteen:{
         diff:300, // number of movements of the slots for shuffling pictures

@@ -1,3 +1,73 @@
+.column img {
+    transition: transform 0.3s ease;
+}
+
+/* Define hover effect for the images */
+.column img:hover {
+    transform: scale(1.1); /* Scale the image by 10% on hover */
+}
+
+.filter-btn .selected {
+    background-color: #333; /* Change background color to indicate selected state */
+    color: #fff; /* Change text color to improve visibility */
+}
+
+.image-button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  @media screen and (min-width: 768px) {
+    #menuBtn {
+        display: none;
+    }
+}
+  .image-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
 .modal {
     display: none;
     position: fixed;
@@ -65,6 +135,11 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.dark-mode .filter-btn .selected {
+    background-color: #fff; /* Change background color to indicate selected state */
+    color: #333; /* Change text color to improve visibility */
 }
 
 .dark-mode .filter-btn:hover {
@@ -199,6 +274,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: whitesmoke;
+    padding-bottom: 100px;
 }
 
 h1 {
@@ -324,6 +400,7 @@ nav {
 footer {
     border-radius: 30%;
     border-radius: 1px;
+    margin-top: 50px;
     border: #333;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for a better look */
     background-color: whitesmoke;
@@ -334,8 +411,8 @@ footer {
     bottom: 0;
     padding-bottom: 20px;
     width: 100%;
-    display: none; /* Initially hide the footer */
-    z-index: 999; /* Ensure footer appears above other content */
+    display: none; 
+     z-index: 999;  
 }
 .social-icon {
     color: #555; /* Color of the social media icons */

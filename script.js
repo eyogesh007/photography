@@ -1,39 +1,43 @@
+
 const gallery = document.getElementById('gallery');
 const filterButtons = document.querySelectorAll('.filter-btn');
 
-const photos = [
+
     
-    { url: './images/20211211_075409.jpg', category: 'landscape' },
-    { url: './images/20211211_101208.jpg', category: 'landscape' },
-    { url: './images/20211212_080817.jpg', category: 'landscape' },
-    { url: './images/20211212_095218.jpg', category: 'landscape' },
-    { url: './images/20211212_101224.jpg', category: 'landscape' },
-    { url: './images/20211212_161413.jpg', category: 'landscape' },
-    { url: './images/20220116_172551.jpg', category: 'landscape' },
-    { url: './images/20220116_210350.jpg', category: 'landscape' },
-    { url: './images/20220404_105718.jpg', category: 'landscape' },
-    { url: './images/20220522_164324.jpg', category: 'landscape' },
-    { url: './images/20220723_194901.jpg', category: 'landscape' },
-    { url: './images/20220923_172840.jpg', category: 'landscape' },
-    { url: './images/20220925_120652.heic', category: 'landscape' },
-    { url: './images/20230125_082951.heic', category: 'landscape' },
-    { url: './images/20230311_074752.heic', category: 'landscape' },
-    { url: './images/20230311_074753.heic', category: 'landscape' },
-    { url: './images/20230708_182607.jpg', category: 'landscape' },
-    { url: './images/20230721_221217 (2).jpg', category: 'landscape' },
-    { url: './images/20230722_190040.heic', category: 'landscape' },
-    { url: './images/20230723_171648.jpg', category: 'landscape' },
-    { url: './images/20230820_213439.jpg', category: 'landscape' },
-    { url: './images/20231025_064727 (3).jpg', category: 'landscape' },
-    { url: './images/20231116_122926 (3).jpg', category: 'landscape' },
-    { url: './images/20231121_194434.jpg', category: 'landscape' },
-    { url: './images/20231202_175518 (3).jpg', category: 'landscape' },
-    { url: './images/20231230_110632.jpg', category: 'landscape' },
-    { url: './images/20240120_152400 (1).jpg', category: 'landscape' },
-    { url: './images/IMG_20220308_200834_723 (4).jpg', category: 'landscape' },
-    { url: './images/IMG_20231025_115154_368.jpg', category: 'landscape' }
+    const photos = [
+        // Your photo data here...
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20211211_075409.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20211211_101208.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20211212_080817.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20211212_095218.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20211212_101224.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20211212_161413.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20220116_172551.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20220116_210350.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20220404_105718.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20220522_164324.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20220723_194901.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20220923_172840.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20220925_120652.heic', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230125_082951.heic', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230311_074752.heic', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230311_074753.heic', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230708_182607.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230721_221217 (2).jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230722_190040.heic', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230723_171648.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20230820_213439.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20231025_064727 (3).jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20231116_122926 (3).jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20231121_194434.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20231202_175518 (3).jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20231230_110632.jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/20240120_152400 (1).jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/IMG_20220308_200834_723 (4).jpg', category: 'landscape' },
+        { url: 'https://raw.githubusercontent.com/eyogesh007/photography/main/images/IMG_20231025_115154_368.jpg', category: 'landscape' }
       
-];
+    ];
+
 
 const image = document.getElementById('image');
 
@@ -44,7 +48,7 @@ let increaseSizeInterval;
 function openImageModal(photo) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
-    modalImg.src = photo.url;
+    modalImg.src = photo; // Assign the photo URL directly to src
     modal.style.display = 'block';
 }
 
@@ -57,7 +61,7 @@ function closeImageModal() {
 function playGame(photo) {
     console.log('Playing game for:', photo);
         console.log('Playing game for:', photo);
-        const gameId = photo.url; // Example parameter to be sent
+        const gameId = photo; // Example parameter to be sent
         
         // Construct the URL with query parameters
         const url = `index1.html?gameId=${encodeURIComponent(gameId)}`;
@@ -119,6 +123,5 @@ filterButtons.forEach(button => {
 
 // Initially display all photos
 displayPhotos('all');
-
 
 

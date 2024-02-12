@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header>          
         <h1>Yogesh's Gallery: Moments in Focus</h1>
         <div class="theme-btn" onclick="toggleDarkMode()">
             <i class="fas fa-adjust"></i>
@@ -21,16 +21,74 @@
             <i id="menuIcon" class="fas fa-bars"></i>
         </button>
         <nav id="navbar">
-            <button class="filter-btn" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="landscape">Landscape</button>
-            <button class="filter-btn" data-filter="portrait">Portrait</button>
-            <button class="filter-btn" data-filter="nature">Nature</button>
-            <!-- Add more categories as needed -->
+            <button class="filter-btn" onclick="filterpublic('all')">All</button>
+            <button class="filter-btn" onclick="filterpublic('landscape')">Landscape</button>
+            <button class="filter-btn" onclick="filterpublic('portrait')">Portrait</button>
+            <button class="filter-btn" onclick="filterpublic('all')">Nature</button>
+        
         </nav>
     </header>
-    <main id="gallery">
-        <!-- Photo cards will be dynamically added here -->
-    </main>
+    <br><br>
+    <h3 style="font-size: x-large;font-family: Dancing Script, cursive;;text-align: center;">Click on the image to discover the magic behind each click!</h3>
+    <br>
+    <div class="row">
+        <div class="column">
+          <img  data-category="landscape" onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/dogs.jpg')" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/dogs.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/whiteflowerportrait.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/whiteflowerportrait.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/goat.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/goat.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/colorflowers.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/colorflowers.jpg">
+          <img  data-category="portrait" onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/fire.jpg')" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/fire.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunflowerdark.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunflowerdark.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/lamp.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/lamp.jpg">
+          
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunflower.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunflower.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/ram.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/ram.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/yheart.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/yheart.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/spider.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/spider.jpg">
+        </div>
+        <div class="column">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/cow.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/cow.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/amma.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/amma.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/coconut.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/coconut.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/shiva.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/shiva.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/purple.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/purple.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/heratdraw.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/heratdraw.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/coconut2.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/coconut2.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/krishna.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/krishna.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/firesun.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/firesun.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/coconut1.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/coconut1.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/tirupatimain.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/tirupatimain.jpg">  
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunsetmain.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunsetmain.jpg">
+        </div>
+        <div class="column">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/butterfly.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/butterfly.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/rose.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/rose.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/rose2.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/rose2.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/tirupati2.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/tirupati2.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/sreeram.webp')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/sreeram.webp">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/roseland.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/roseland.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/ant.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/ant.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/snail.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/snail.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/waepons.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/waepons.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/spikes.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/spikes.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/tankbund.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/tankbund.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/balm2.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/balm2.jpg">
+        </div>
+        <div class="column">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/tirupathi.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/tirupathi.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/india.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/india.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/dragonfly.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/dragonfly.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/naturebalm.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/naturebalm.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunsetfav.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/sunsetfav.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/spider1.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/spider1.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/rainbow.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/rainbow.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/pump.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/pump.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/best.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/best.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/goat12.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/goat12.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/treesfav.jpg')" data-category="portrait" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/treesfav.jpg">
+          <img onclick="playGame('https://raw.githubusercontent.com/eyogesh007/photography/main/public/goat11.jpg')" data-category="landscape" src="https://raw.githubusercontent.com/eyogesh007/photography/main/public/goat11.jpg">  
+        </div>
+      </div>
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeImageModal()">&times;</span>
         <img class="modal-content" id="modalImage">
@@ -44,6 +102,7 @@
     </footer>
     <script src="script.js"></script>
     <script>
+        
     window.addEventListener('scroll', function() {
     var footer = document.querySelector('footer');
     var scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -85,6 +144,17 @@ function toggleDarkMode() {
 function closeImageModal() {
     document.getElementById("imageModal").style.display = "none";
 }
+function filterpublic(category) {
+            var public = document.querySelectorAll('.column img');
+            public.forEach(function(img) {
+                if (category === 'all' || img.getAttribute('data-category') === category) {
+                    img.style.display = 'block';
+                } else {
+                    img.style.display = 'none';
+                }
+            });
+            
+        }
     </script>
 </body>
 </html>
