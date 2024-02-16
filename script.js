@@ -70,8 +70,9 @@ function playGame(photo) {
         const url = `index1.html?gameId=${encodeURIComponent(gameId)}`;
         
         // Open the new tab with the URL
+    musicPlayer.pause();
         const newTab = window.open(url, '_blank');
-    musicPlayer1.pause();
+    
     }
 // Function to display photos based on category
 function displayPhotos(category) {
