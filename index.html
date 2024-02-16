@@ -16,11 +16,21 @@
 <body>
     <header>          
         <h1>Yogesh's Gallery: Moments in Focus</h1>
-        <div class="theme-btn" onclick="toggleDarkMode()">
-            <i class="fas fa-adjust"></i>
-        </div>
+        <div class="wrapper" onclick="toggleDarkMode()">
+            <div class="center">
+              <div class="candle" id="candle">
+                <div class="candle-flame"></div>
+                <div class="candle-wick"></div>
+                <div class="candle-wax"></div>
+                <div class="candle-stand"></div>
+              </div>
+            </div>
+          </div>
         <button id="menuBtn" class="menu-btn" onclick="toggleMenu()">
             <i id="menuIcon" class="fas fa-bars"></i>
+        </button>
+        <audio id="musicPlayer" src="spotifydown.com - Sri Krishna Flute.mp3" loop preload="auto"></audio>
+    <button id="musicButton" class="theme-btn1" onclick="toggleMusic()"><i class="fas fa-music"></i> <!-- Font Awesome icon for a musical note -->
         </button>
         <nav id="navbar">
             <button class="filter-btn" onclick="filterpublic('all')">All</button>
@@ -31,7 +41,9 @@
         </nav>
     </header>
     <br><br>
-    <h3 style="font-size: x-large;font-family: Dancing Script, cursive;;text-align: center;">Click on the image to discover the magic behind each click!</h3>
+    <h3 style="font-size: x-large;font-family: Dancing Script, cursive;;text-align: center;"><i id="rot1" class="fas fa-camera"></i>
+        Immerse yourself in the melody and Click on the image to discover the magic behind each click!   <i id="rot2" class="fas fa-camera"></i>
+    </h3>
     <br>
     <div class="row">
         <div class="column">
@@ -104,7 +116,41 @@
     </footer>
     <script src="script.js"></script>
     <script>
-        
+        var musicPlayer = document.getElementById('musicPlayer');
+        var musicButton = document.getElementById('musicButton');
+        musicPlayer.volume = 0.4;
+        // Function to play music
+        function playMusic() {
+            musicPlayer.play();
+        }
+
+        // Check if the music should be played when the page is loaded
+        function checkAutoPlay() {
+            var promise = musicPlayer.play();
+            if (promise !== undefined) {
+                promise.then(function() {
+                    // Autoplay started
+                    console.log('Autoplay started');
+                }).catch(function(error) {
+                    // Autoplay was prevented
+                    console.error('Autoplay was prevented:', error);
+                });
+            }
+        }
+
+        // Play the music when the page is loaded
+        window.addEventListener('load', function() {
+            checkAutoPlay();
+        });
+
+        // Function to toggle music playback when the button is clicked
+        function toggleMusic() {
+            if (musicPlayer.paused) {
+                playMusic();
+            } else {
+                musicPlayer.pause();
+            }
+        }
     window.addEventListener('scroll', function() {
     var footer = document.querySelector('footer');
     var scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -117,6 +163,29 @@
         footer.style.display = 'none'; // Hide footer otherwise
     }
 });
+window.addEventListener('load', function() {
+    // Function to check if the footer should be displayed
+    function checkFooterVisibility() {
+        var footer = document.querySelector('footer');
+        var bodyHeight = document.body.clientHeight;
+        var viewportHeight = window.innerHeight;
+
+        if (bodyHeight <= viewportHeight) {
+            footer.style.display = 'block';
+        } else {
+            footer.style.display = 'none';
+        }
+    }
+
+    // Check footer visibility on page load
+    checkFooterVisibility();
+
+    // Check footer visibility on window resize
+    window.addEventListener('resize', function() {
+        checkFooterVisibility();
+    });
+});
+
 function toggleMenu() {
             var navbar = document.getElementById("navbar");
             navbar.classList.toggle("show-menu");
@@ -127,12 +196,10 @@ function toggleMenu() {
     menuIcon.classList.toggle('fa-times');
         }
 function toggleDarkMode() {
-            // Toggle the dark-mode class on the body element
-            document.body.classList.toggle('dark-mode');
-
-            // Save user preference in local storage
-            const isDarkModeEnabled = document.body.classList.contains('dark-mode');
-            localStorage.setItem('darkModeEnabled', isDarkModeEnabled);
+    var candle = document.getElementById('candle');
+      candle.classList.toggle('flame-off');
+    document.body.classList.toggle('dark-mode');
+    const isDarkModeEnabled = document.body.classList.contains('dark-mode');
         }
 
 

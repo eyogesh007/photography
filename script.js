@@ -51,6 +51,9 @@ function openImageModal(photo) {
     modalImg.src = photo; // Assign the photo URL directly to src
     modal.style.display = 'block';
 }
+var musicPlayer = document.getElementById('musicPlayer');
+var musicButton = document.getElementById('musicButton');
+
 
 // Function to close the image modal
 function closeImageModal() {
