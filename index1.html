@@ -387,6 +387,35 @@ input:checked+.slider:before{transform:translateX(26px);}
     color: white;
     cursor: pointer;
   }
+  #rot1 {
+    margin-right: 10px;
+    font-size: 20px;
+    animation: rotateAnimation 1s linear infinite; /* Adjust duration and timing function as needed */
+  }
+  
+  @keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+#rot2 {
+    margin-left: 10px;
+    font-size: 20px;
+    animation: rotateAnimation 1s linear infinite; /* Adjust duration and timing function as needed */
+  }
+  
+  @keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 </style>
 </head>
 <body>
@@ -396,8 +425,13 @@ input:checked+.slider:before{transform:translateX(26px);}
     </div> -->
     <h1 style="text-align: center;">WELCOME TO THE PUZZLE PARADISE</h2>
         <br>
+        <h3 style="font-size: 20px;font-family: Dancing Script, cursive;;text-align: center;margin: 3px;"><i id="rot1" class="fas fa-camera"></i>
+             Delve deeper into the magic of each image with our mesmerizing zooming feature. Experience the full beauty captured in every detail and also embark on a journey of discovery as you unravel the puzzle.
+            <i id="rot2" class="fas fa-camera"></i>
+        </h3>
+        <br>
         <div class="centered-button-container">
-            <button onclick="ope()" class="full-image-button">Display Full Image</button>
+            <button onclick="ope()" class="full-image-button">Visual Symphony</button>
         </div>
         <div class="img-zoom-container">
             <span class="close-btn" onclick="closeZoom()">×</span>
