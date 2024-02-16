@@ -2,7 +2,7 @@
 const gallery = document.getElementById('gallery');
 const filterButtons = document.querySelectorAll('.filter-btn');
 
-
+var musicPlayer = document.getElementById('musicPlayer');
     
     const photos = [
         // Your photo data here...
@@ -64,6 +64,7 @@ function closeImageModal() {
 function playGame(photo) {
     console.log('Playing game for:', photo);
         console.log('Playing game for:', photo);
+     musicPlayer1.pause();
         const gameId = photo; // Example parameter to be sent
         
         // Construct the URL with query parameters
