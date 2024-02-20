@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PersonaPuzzle</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/src/styles/leaderboard.css" />
+    <link rel="stylesheet" href="/src/styles/lobby.css" />
+    <style>
+#rot{
+  animation: rotateAnimation 2s linear infinite;
+}
+ 
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+ 
+.signup-button.disabled {
+  transform: translateY(-10px);
+}
+.signup-button.disable {
+  transform: translateY(10px);
+}
+ 
+ 
+body {
+  font-family: "Arial", sans-serif;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+ 
+ 
+h3 {
+  font-family: 'Roboto', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+ 
+ 
+.logo {   font-family: Arial, sans-serif;   font-size: 40px; }
+.logo span {    display: inline-block; }
+.char1  { color: #FF4136; transform: skewX(10deg);} /* red */
+.char2  { color: #FF851B; transform: skewX(-20deg);} /* orange */
+.char3  { color: #FFDC00; transform: skewX(20deg); } /* yellow */
+.char4  { color: #2ECC40; transform: skewX(-20deg);} /* green */
+.char5  { color: #0074D9; transform: skewX(10deg);} /* blue */
+.char6  { color: #B10DC9; transform: skewX(-20deg);} /* violet */
+.char7  { color: #FFC0CB; transform: skewX(15deg);}    /* pink */
+.char8  { color: #FF4136; transform: skewX(-15deg);} /* red */
+.char9  { color: #FF851B; transform: skewX(20deg);} /* orange */
+.char10 { color: #FFDC00; transform: skewX(10deg);} /* yellow */
+.char11 { color: #2ECC40; transform: skewX(-10deg);} /* green */
+.char12 { color: #0074D9; transform: skewX(10deg);} /* blue */
+.char13 { color: #B10DC9; transform: skewX(-20deg);} /* violet */
+ 
+ 
+#split-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: whitesmoke;
+}
+.left {
+  height: 200px;
+  background-color: whitesmoke;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin:20px
+ 
+}
+.p{
+  border:1px solid black;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
+  border-radius: 15px 50px;
+  
+}
+.left p {
+  margin: 20px;
+
+}
+.left,
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.right{
+  background-color: whitesmoke;
+  height:min-content;
+}
+ 
+@media screen and (min-width: 875px) {
+  #split-screen {
+    flex-direction: row;
+    height: 100vh;
+  }
+  .left,
+  .right {
+    display: flex;
+    width: 50%;
+    height: auto;
+    background-color: whitesmoke;
+  }
+  .right{
+    background-color: whitesmoke
+  }
+}
+/* Add media query for small screens */
+@media screen and (max-width: 600px) {
+  .left {
+    height: auto; /* Adjust height for smaller screens */
+    margin-bottom: 20px; /* Add some margin at the bottom */
+  }
+
+  .left p {
+    margin: 10px; /* Adjust margin for paragraphs */
+  }
+
+  .right {
+    width: 100%; /* Take up full width */
+    margin: 0; /* Remove margin */
+  }
+
+  .right form {
+    width: 100%; /* Take up full width */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .right form h3 {
+    font-size: 20px; /* Decrease font size */
+  }
+
+  .image-container1 {
+    margin-bottom: 20px; /* Add margin at the bottom */
+  }
+
+  .img3 {
+    margin-left: auto; /* Center the image */
+    margin-right: auto;
+  }
+
+  #rot {
+    top: 30%; /* Adjust position */
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .button-dv {
+    margin-top: 20px; /* Add margin at the top */
+  }
+
+  form input[type="text"],
+  form input[type="email"] {
+    width: 100%; /* Take up full width */
+  }
+
+  label {
+    font-size: 14px; /* Decrease font size */
+  }
+}
+
+.right form{
+  padding: 20px;
+  width: 328px;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.right form h3 {
+  font-family: Arial;
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+}
+ 
+ 
+.right .copy {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+ 
+.input-container {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+}
+ 
+.input-container.persona {
+  padding-bottom: 3rem;
+}
+ 
+.input-container.name {
+  padding-bottom: none;
+}
+ 
+ 
+.button-dv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+ 
+ 
+/* #landingForm {
+  margin-top: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+} */
+ 
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: medium;
+}
+ 
+form input[type="text"] {
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  display: block;
+  box-sizing: border-box;
+}
+
+form input[type="email"] {
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  display: block;
+  box-sizing: border-box;
+}
+ 
+#app {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* Center the buttons horizontally */
+}
+ 
+#game{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
+}
+.timer{
+  display: flex;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+justify-content: center;
+}
+ 
+ 
+.game-button {
+  background-color: #2196f3;
+  color: white;
+  border: 2px solid cornflowerblue;
+  border-radius: 10px;
+  position: relative;
+  left: 25px;
+  padding: 20px; /* Increase button size */
+  margin: 5px; /* Add some margin between buttons */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px; /* Set a fixed width for better alignment */
+  box-sizing: border-box; /* Include padding in button width */
+}
+ 
+button:hover {
+  background-color: #0b7dda;
+}
+ 
+button:disabled {
+  cursor: not-allowed;
+}
+ 
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 25px;
+}
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+ 
+body {
+  background: #424242;
+}
+ 
+form {
+  width: 320px;
+  margin: 45px auto;
+}
+form h1 {
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: #2196F3;
+}
+form h5 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #c6c6c6;
+}
+form hr.sep {
+  background: #2196F3;
+  box-shadow: none;
+  border: none;
+  height: 2px;
+  width: 25%;
+  margin: 0px auto 45px auto;
+}
+form .emoji {
+  font-size: 1.2em;
+}
+ 
+.group {
+  position: relative;
+  margin: 10px 0;
+}
+ 
+input,
+textarea {
+  background: none;
+  color: #c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 320px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #c6c6c6;
+}
+input:focus,
+text:focus {
+  outline: none;
+  color: black;
+}
+input:focus ~ label, input:valid ~ label,
+text:focus ~ label,
+text:valid ~ label {
+  top: -16px;
+  font-size: 12px;
+  font-family:cursive;
+  color: black;
+}
+input:focus ~ .bar:before,
+textarea:focus ~ .bar:before {
+  width: 320px;
+  color: black;
+}
+ 
+ 
+label {
+  color: #c6c6c6;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 300ms ease all;
+}
+ 
+.bar {
+  position: relative;
+  display: block;
+  width: 320px;
+}
+.bar:before {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #2196F3;
+  transition: 300ms ease all;
+  left: 0%;
+}
+ 
+.signup-button {
+  transition: transform 0.1s ease;
+  background: #fff;
+  color: #959595;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-right: 55px;;
+  margin-top: 20px;
+}
+.signup-button:hover {
+  color: #8b8b8b;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
+}
+.signup-button.signup-button-submit {
+  background: #2196F3;
+  color: #bce0fb;
+}
+.signup-button.signup-button-submit:hover {
+  background: #0d8aee;
+  color: #deeffd;
+}
+.image-container {
+    display: flex;
+    flex-direction: column;
+}
+.img1{
+  width: 400px;
+  height: 200px;
+  margin-bottom: 40px;
+}
+.img2{
+  width: 300px;
+  height: 300px;
+  margin-left: 100px;
+}
+.image-container1 {
+    position: relative;
+    width: fit-content; /* Adjust as needed */
+}
+
+.img3 {
+    width: 120px; /* Adjust the width of the image */
+    height: 140px;
+    border-radius: 50%;
+    margin-left: 90px;
+
+}
+
+#rot {
+   
+    position: absolute;
+    top: 40%; /* Adjust the distance from the top */
+    left: 28%; /* Adjust the distance from the left */
+    transform-origin:250%; /* Set the origin of the rotation */
+    transform: translate(-50%, -50%) rotate(90deg); /* Rotate the icon */
+    width: 40px;
+    height: 10px;
+}
+
+h3{
+  margin: 30px;
+}
+
+.candle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .candle-flame {
+    width: 3px;
+    height: 7px;
+    background: #ffad00;
+    border-radius: 8px 8px 8px 8px/20px 20px 8px 8px;
+    box-shadow: 0px 0px 20px 0 #ffad00;
+    animation: flame-twirl 15s ease infinite, glow 2s ease infinite;
+  }
+
+  .candle-wick {
+    height: 2px;
+    width: 1px;
+    background: #ad87a9;
+  }
+
+  .candle-wax {
+    width: 6px;
+    height: 25px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: inset -7.5px 0px 0px -5px #d8deed;
+  }
+
+  .candle-stand {
+    width: 10px;
+    height: 4px;
+    background: #1c233e;
+    border-radius: 3px;
+  }
+
+  @keyframes flame-twirl {
+    0%, 22%, 49%, 62%, 81%, 100% {
+      border-radius: 2px 14px 8px 8px/20px 20px 8px 8px;
+    }
+    14%, 32%, 56%, 70%, 89% {
+      border-radius: 14px 2px 8px 8px/20px 20px 8px 8px;
+    }
+  }
+
+  .wrapper {
+    position: fixed;
+    top: 10%;
+    right: 2.5%; 
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2d3d50;
+    cursor: pointer;
+    box-shadow: 4px 8px 16px 0 #00000010;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @keyframes glow {
+    0%, 30%, 60%, 80%, 100% {
+      box-shadow: 0 0 20px 0 #ffad00;
+    }
+    20%, 50%, 70% {
+      box-shadow: 0 0 22px 0 #ffad00;
+    }
+  }
+  .candle.flame-off .candle-flame {
+    display: none;
+  }
+
+  .dark-mode *{
+    /* Define your dark mode styles here */
+    background-color: #333;
+    color: #fff;
+}
+.dark-mode #split-screen{
+    /* Define your dark mode styles here */
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .p{
+  border:1px solid white;
+  box-shadow: 0 0 30px rgba(244, 241, 241, 0.1); 
+  border-radius: 15px 50px;
+  
+}
+
+.dark-mode input:focus,
+text:focus {
+  outline: none;
+  color: white;
+}
+.dark-mode input:focus ~ label, input:valid ~ label,
+text:focus ~ label,
+text:valid ~ label {
+  top: -16px;
+  font-size: 12px;
+  font-family:cursive;
+  color: white;
+}
+.dark-mode input:focus ~ .bar:before,
+textarea:focus ~ .bar:before {
+  width: 320px;
+  color: white;
+}
+ </style>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  </head>
+  <body>
+    <div class="wrapper" onclick="toggleDarkMode()">
+      <div class="center">
+        <div class="candle" id="candle">
+          <div class="candle-flame"></div>
+          <div class="candle-wick"></div>
+          <div class="candle-wax"></div>
+          <div class="candle-stand"></div>
+        </div>
+      </div>
+    </div>
+    <div id="split-screen">
+      <div class="left">
+        <div class="p">
+        <p>In every feedback, there's a lesson waiting to be learned</p>
+        <p>ప్రతి ఫీడ్‌బ్యాక్‌లో, ఒక పాఠం నేపథ్యంలో ఉంది.</p>
+        <p>हर प्रतिक्रिया में, एक सीखने का सबक होता है।</p>
+        <p>ஒவ்வொரு பின்னணியிலும், ஒரு பாடம் காத்திருக்கின்றது</p>
+        <p> प्रत्येक फीडबॅकमध्ये, एक शिकण्यासाठी गोष्ट अपेक्षित आहे.</p>
+        <p>ಪ್ರತಿ ಮತವನ್ನು ಮರುನೋಟದಲ್ಲಿ ಪಾಠವನ್ನು ಕಲಿಯಬಹುದು.</p>
+        <p> പ്രതിസന്ധിയിൽ, പഠനം നിലവിലുള്ളു.</p>
+        <p>প্রতিটি প্রতিক্রিয়ায়, শেখার জন্য একটি পাঠ অপেক্ষা করছে</p>
+      </div>
+      </div>
+   
+      <div class="right">
+       
+        <form id="landingForm">
+          <div class="image-container1">
+            <img class="img3" src="C:\Users\ye9736\Downloads\passportsizephoto.jpg" alt="Passport Photo">
+            <i id="rot" class="fas fa-camera"></i>
+        </div>          <br><br>
+          <div class="group">
+              <input id="attuidInput" type="text" required="required"/><span class="highlight"></span>
+              <label>Name:</label>
+          </div>
+          <div class="group">
+              <input id="nameInput" type="email" required="required"/><span class="highlight"></span>
+              <label>Email:</label>
+          </div>
+          <div class="group">
+              <input id="personaInput" type="text" required="required"/><span class="highlight"></span>
+              <label>Feedback:</label>
+          </div>
+          <div class="group">
+            <input id="personaInput" type="text" required="required"/><span class="highlight"></span>
+            <label>Any thing to say:</label>
+        </div>
+          <div class="button-dv">
+              <button id="submitButton" class="signup-button signup-button-submit" type="submit">SUBMIT</button>
+          </div>
+      </form>
+     
+      </div>
+    </div>
+ 
+    <script>
+      var a=0;
+      document.getElementById('submitButton').addEventListener('mousemove', function(event) {
+    const attuidInput = document.getElementById('attuidInput').value.trim();
+    const nameInput = document.getElementById('nameInput').value.trim();
+    const personaInput = document.getElementById('personaInput').value.trim();
+   
+    const submitButton = document.getElementById('submitButton');
+    if (!attuidInput || !nameInput || !personaInput) {
+        const mouseX = event.clientX;
+        const submitButtonX = submitButton.getBoundingClientRect().left;
+        if(a==1){
+        const translationX = Math.max(100, mouseX - submitButtonX - 10);
+        submitButton.style.transform = `translateX(${translationX}px)`;
+        a=0;
+        }
+        else{
+        const translationX = Math.max(-100,-1*( mouseX - submitButtonX - 10));
+        submitButton.style.transform = `translateX(${translationX}px)`;
+        a=1;
+        }
+    } else {
+        submitButton.style.transform = 'none';
+    }
+});
+ 
+function toggleDarkMode() {
+                var candle = document.getElementById('candle');
+                candle.classList.toggle('flame-off');
+                document.body.classList.toggle('dark-mode');
+                const isDarkModeEnabled = document.body.classList.contains('dark-mode');
+                localStorage.setItem('darkModeEnabled', isDarkModeEnabled);
+            }
+    </script>
+  </body>
+</html>
