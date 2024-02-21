@@ -1,482 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PersonaPuzzle</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="/src/styles/leaderboard.css" />
-    <link rel="stylesheet" href="/src/styles/lobby.css" />
-    <style>
-      *{
-        background-color:whitesmoke;
-      }
-#rot{
-  animation: rotateAnimation 2s linear infinite;
-}
- 
-@keyframes rotateAnimation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
- 
-.signup-button.disabled {
-  transform: translateY(-10px);
-}
-.signup-button.disable {
-  transform: translateY(10px);
-}
- 
- 
-body {
-  font-family: "Arial", sans-serif;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color:whitesmoke;
-}
- 
- 
-h3 {
-  font-family: 'Roboto', sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
- 
- 
-.logo {   font-family: Arial, sans-serif;   font-size: 40px; }
-.logo span {    display: inline-block; }
-.char1  { color: #FF4136; transform: skewX(10deg);} /* red */
-.char2  { color: #FF851B; transform: skewX(-20deg);} /* orange */
-.char3  { color: #FFDC00; transform: skewX(20deg); } /* yellow */
-.char4  { color: #2ECC40; transform: skewX(-20deg);} /* green */
-.char5  { color: #0074D9; transform: skewX(10deg);} /* blue */
-.char6  { color: #B10DC9; transform: skewX(-20deg);} /* violet */
-.char7  { color: #FFC0CB; transform: skewX(15deg);}    /* pink */
-.char8  { color: #FF4136; transform: skewX(-15deg);} /* red */
-.char9  { color: #FF851B; transform: skewX(20deg);} /* orange */
-.char10 { color: #FFDC00; transform: skewX(10deg);} /* yellow */
-.char11 { color: #2ECC40; transform: skewX(-10deg);} /* green */
-.char12 { color: #0074D9; transform: skewX(10deg);} /* blue */
-.char13 { color: #B10DC9; transform: skewX(-20deg);} /* violet */
- 
- 
-#split-screen {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: whitesmoke;
-}
-.left {
-  height: 200px;
-  background-color: whitesmoke;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin:20px
- 
-}
-.p{
-  border:1px solid black;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
-  border-radius: 15px 50px;
-  
-}
-.left p {
-  margin: 20px;
+<html>
+<head>
+<title>Yogesh's Photography Portfolio</title>
+<link href="/YOUR_PATH/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58xMDH/srOy/56env+enp7/np6e/56env+enp7/np6e/56env+enp7/np6e/56env+enp7/np6e/56env8xMDH/S0lL//Du8P/W19b/1tfW/9bX1v/W19b/1tfW/9bX1v+tra3/RkVG/0ZFRv9EQ0T/w8TD/8bHxv+2t7b/QUBB/0tJS//w7vD/1tfW/9bX1v/W19b/1tfW/9bX1v+oqaj/kI6Q/+/r7//W19b/yMnI/1BQUP+2t7b/tre2/0FAQf9LSUv/8O7w/8bHxv/W19b/1tfW/9bX1v/Cw8L/urm6/+/r7//Gxcb/jo+O/7i5uP+9vr3/VlZW/7a3tv9BQEH/S0lL/+Ph4//AwcD/1NXU/9bX1v/W19b/o6Sj/8zNzP/n4+f/mZqZ/8zNzP8xMDH/1NXU/5aWlv9/f3//QUBB/0tJS//w7vD/q62r/9TV1P/W19b/1tfW/6Oko//Ky8r/0dLR/4SGhP+EhoT/hIaE/+/r7/+3ubf/np+e/0FAQf9LSUv/6ujq/8bHxv/U1dT/1tfW/9bX1v/Cw8L/pael/8DBwP+8vbz/o6Sj/8bFxv+V4fX/n5+f/56fnv9BQEH/S0lL//Du8P/Gx8b/1NXU/9bX1v/W19b/wsPC/1tbW/9vb2//xsfG/9bX1v/v6+//Fsv1/7y9vP+2t7b/QUBB/0tJS//w7vD/1tfW/9bX1v/W19b/1tfW/6Oko/+EhoT/Ozs7/4mLif+OkI7/G9D6/wDz//9Z2fj/xcTF/0FAQf8xMDH/zMjM/0lHSf9GRUb/MTAx/+Xi5f/l4uX/5eLl/+Xi5f/l4uX/5eLl/+Xi5f8b0Pr/zMvM/8zLzP8xMDH/Hx4fnzEwMf+opaj/mJiY/29vb/8fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fBm6Gnx8eH58fHh+fHx4fnwAAAAAAAAAAEhISYBISEmAMDAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAA==" rel="icon" type="image/x-icon">
 
-}
-.left,
-.right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.right{
-  background-color: whitesmoke;
-  height:min-content;
-}
- 
-@media screen and (min-width: 875px) {
-  #split-screen {
-    flex-direction: row;
-    height: 100vh;
-  }
-  .left,
-  .right {
-    display: flex;
-    width: 50%;
-    height: auto;
-    background-color: whitesmoke;
-  }
-  .right{
-    background-color: whitesmoke
-  }
-}
-/* Add media query for small screens */
-@media screen and (max-width: 600px) {
-  .left {
-    height: auto; /* Adjust height for smaller screens */
-    margin-bottom: 20px; /* Add some margin at the bottom */
-  }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="shortcut icon" href="icon.jpg" type="image/x-icon">
+<meta content="#c4cebb" name="theme-color" charset="UTF-8">
+<meta name="description" content="A simple implementation of the classic mini-game Fifteen Sliding Puzzle, using HTML5 DOM document elements and without using Canvas or third party libraries.">
+<meta name="keywords" content="15Puzzle, js, Open Source, HTML5, Sliding, web, base">
+<meta name="author" content="Kirill Live">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link href='https://fonts.googleapis.com/css?family=Aladin' rel='stylesheet'>
 
-  .left p {
-    margin: 10px; /* Adjust margin for paragraphs */
-  }
-
-  .right {
-    width: 100%; /* Take up full width */
-    margin: 0; /* Remove margin */
-  }
-
-  .right form {
-    width: 100%; /* Take up full width */
-    padding: 10px; /* Adjust padding */
-  }
-
-  .right form h3 {
-    font-size: 20px; /* Decrease font size */
-  }
-
-  .image-container1 {
-    margin-bottom: 20px; /* Add margin at the bottom */
-  }
-
-  .img3 {
-    margin-left: auto; /* Center the image */
-    margin-right: auto;
-  }
-
-  #rot {
-    top: 30%; /* Adjust position */
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
-  .button-dv {
-    margin-top: 20px; /* Add margin at the top */
-  }
-
-  form input[type="text"],
-  form input[type="email"] {
-    width: 100%; /* Take up full width */
-  }
-
-  label {
-    font-size: 14px; /* Decrease font size */
-  }
-}
-
-.right form{
-  padding: 20px;
-  width: 328px;
-  display: flex;
-  flex-direction: column;
-}
- 
-.right form h3 {
-  font-family: Arial;
-  font-size: 24px;
-  font-weight: bold;
-  color: blue;
-}
- 
- 
-.right .copy {
-  text-align: center;
-  padding-bottom: 3rem;
-}
- 
-.input-container {
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
-}
- 
-.input-container.persona {
-  padding-bottom: 3rem;
-}
- 
-.input-container.name {
-  padding-bottom: none;
-}
- 
- 
-.button-dv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
- 
- 
- 
-/* #landingForm {
-  margin-top: 20px;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-} */
- 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: medium;
-}
- 
-form input[type="text"] {
-  width: 80%;
-  padding: 5px;
-  margin-bottom: 1em;
-  border-radius: 8px;
-  border: 2px solid #ccc;
-  display: block;
-  box-sizing: border-box;
-}
-
-form input[type="email"] {
-  width: 80%;
-  padding: 5px;
-  margin-bottom: 1em;
-  border-radius: 8px;
-  border: 2px solid #ccc;
-  display: block;
-  box-sizing: border-box;
-}
- 
-#app {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center; /* Center the buttons horizontally */
-}
- 
-#game{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
- 
-}
-.timer{
-  display: flex;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
-justify-content: center;
-}
- 
- 
-.game-button {
-  background-color: #2196f3;
-  color: white;
-  border: 2px solid cornflowerblue;
-  border-radius: 10px;
-  position: relative;
-  left: 25px;
-  padding: 20px; /* Increase button size */
-  margin: 5px; /* Add some margin between buttons */
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+<style>
+    .centered-button-container {
+            text-align: center;
+            margin-top: 20px; /* Adjust as needed */
+        }
+        
+        /* Styling for the button */
+        .full-image-button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px; /* Adjust as needed */
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    .dark-mode {
+            /* Define your dark mode styles here */
+            background-color: #1D2A35;
+            color: #fff;
+        }
+        .dark-mode input{
+            color: white;
+        }
+    .theme-btn {
+  top: 1%;
+  right: 3%;
+  position: fixed;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 150px; /* Set a fixed width for better alignment */
-  box-sizing: border-box; /* Include padding in button width */
+  background-color: var(--color-grey-4);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: .7rem 0;
+  -webkit-box-shadow: var(--box-shadow-1);
+          box-shadow: var(--box-shadow-1);
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
- 
-button:hover {
-  background-color: #0b7dda;
+
+.theme-btn:active {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
 }
- 
-button:disabled {
-  cursor: not-allowed;
-}
- 
-h1 {
-  text-align: center;
-  color: #333;
-  font-size: 25px;
-}
-*,
-:before,
-:after {
-  box-sizing: border-box;
-}
- 
-body {
-  background: #424242;
-}
- 
-form {
-  width: 320px;
-  margin: 45px auto;
-}
-form h1 {
-  font-size: 3em;
-  font-weight: 300;
-  text-align: center;
-  color: #2196F3;
-}
-form h5 {
-  text-align: center;
-  text-transform: uppercase;
-  color: #c6c6c6;
-}
-form hr.sep {
-  background: #2196F3;
-  box-shadow: none;
-  border: none;
-  height: 2px;
-  width: 25%;
-  margin: 0px auto 45px auto;
-}
-form .emoji {
-  font-size: 1.2em;
-}
- 
-.group {
-  position: relative;
-  margin: 10px 0;
-}
- 
-input,
-textarea {
-  background: none;
-  color: #c6c6c6;
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 320px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #c6c6c6;
-}
-input:focus,
-text:focus {
-  outline: none;
-  color: black;
-}
-input:focus ~ label, input:valid ~ label,
-text:focus ~ label,
-text:valid ~ label {
-  top: -16px;
-  font-size: 12px;
-  font-family:cursive;
-  color: black;
-}
-input:focus ~ .bar:before,
-textarea:focus ~ .bar:before {
-  width: 320px;
-  color: black;
-}
- 
- 
-label {
-  color: #c6c6c6;
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
+
+.theme-btn i {
+  font-size: 2rem;
+  color: var(--color-grey-2);
   pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 300ms ease all;
 }
- 
-.bar {
-  position: relative;
-  display: block;
-  width: 320px;
+body {
+    margin-top: 50px;
+    padding: 0;
+    margin-left: 20px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background-color:#FFFFFF;
+    
 }
-.bar:before {
-  content: "";
-  height: 2px;
-  width: 0;
-  bottom: 0px;
-  position: absolute;
-  background: #2196F3;
-  transition: 300ms ease all;
-  left: 0%;
+h1{
+    font-size:x-large;
+    font-family: 'Aladin';
 }
- 
-.signup-button {
-  transition: transform 0.1s ease;
-  background: #fff;
-  color: #959595;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 3px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  outline: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  margin-right: 55px;;
-  margin-top: 20px;
+h2{
+    font-size:large;
+    font-family: 'Aladin';
 }
-.signup-button:hover {
-  color: #8b8b8b;
-  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
-}
-.signup-button.signup-button-submit {
-  background: #2196F3;
-  color: #bce0fb;
-}
-.signup-button.signup-button-submit:hover {
-  background: #0d8aee;
-  color: #deeffd;
-}
-.image-container {
+.container {
     display: flex;
-    flex-direction: column;
-}
-.img1{
-  width: 400px;
-  height: 200px;
-  margin-bottom: 40px;
-}
-.img2{
-  width: 300px;
-  height: 300px;
-  margin-left: 100px;
-}
-.image-container1 {
-    position: relative;
-    width: fit-content; /* Adjust as needed */
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between; /* Add space between the two divs */
 }
 
-.img3 {
-    width: 120px; /* Adjust the width of the image */
-    height: 140px;
-    border-radius: 50%;
-    margin-left: 90px;
-
+#fifteen, #fifteen1 {
+    
+    min-width: 0;
+    box-sizing: border-box;
+    margin: 15px 15px; /* Adjust margin as needed */
+    max-width: 45%; /* Adjust the max-width as needed */
 }
 
-#rot {
-   
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center; /* Center items vertically */
+        justify-items: center;
+    }
+
+    #fifteen, #fifteen1 {
+        /* Adjust margin for vertical spacing */
+        margin-left: 30px;
+        max-width: 100%; /* Allow divs to take full width on smaller screens */
+    }
+}
+
+*{
+	font-family:Arial;
+    font-size:12px;
+	border-collapse:collapse;
+	border:none;
+	margin:0;
+	padding:0;
+	border-spacing:0px;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	outline:none;
+}
+
+
+.input_text{
+	border:0;
+	font-family:Arial;
+	font-size:12px;
+	-webkit-appearance:none;
+	border-bottom:1px solid #c4cebb;
+	background-color:transparent;
+	cursor:text;
+	height:28px;
+	width:100%;
+	-webkit-touch-callout:text;-webkit-user-select:text;-khtml-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;
+}
+.button{border-radius:8px;width:100%;height:32px;background-color:#c4cebb;display:grid;align-content: center;justify-content: center;cursor:pointer;}
+.button:hover{background-color:#dfebd5;}
+.switch {
+  position:relative;
+  display:inline-block;
+  width:50px;
+  height:24px;
+}
+.switch input{opacity:0;width:0;height:0;}
+.slider{
+  position:absolute;
+  cursor:pointer;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:#c4cebb;
+  transition:.2s;
+  border-radius:12px;
+}
+.slider:before{
+  position:absolute;
+  content:"";
+  height:18px;
+  width:18px;
+  left:3px;
+  bottom:3px;
+  background-color:#fff;
+  transition:.2s;
+  border-radius:12px;
+}
+input:checked+.slider{background-color:#dfebd5;}
+input:checked+.slider:before{transform:translateX(26px);}
+/* Modal */
+/* Modal */
+#imageModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: 20px auto; /* Center the modal and add margin above the photo */
+    display: block;
+    max-width: 80%; /* Adjust the maximum width of the modal content */
+    max-height: calc(100% - 70px); /* Set maximum height of the modal content */
+}
+
+/* Close Button */
+.close {
+    color: white;
     position: absolute;
-    top: 40%; /* Adjust the distance from the top */
-    left: 28%; /* Adjust the distance from the left */
-    transform-origin:250%; /* Set the origin of the rotation */
-    transform: translate(-50%, -50%) rotate(90deg); /* Rotate the icon */
-    width: 40px;
-    height: 10px;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-h3{
-  margin: 30px;
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
-
-
 .candle {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #333;
   }
 
   .candle-flame {
@@ -501,13 +254,7 @@ h3{
     border-radius: 6px;
     box-shadow: inset -7.5px 0px 0px -5px #d8deed;
   }
-  .dark-mode .candle-wax {
-    width: 6px;
-    height: 25px;
-    background: #ffffff;
-    border-radius: 6px;
-    box-shadow: inset -7.5px 0px 0px -5px #d8deed;
-  }
+
   .candle-stand {
     width: 10px;
     height: 4px;
@@ -551,164 +298,437 @@ h3{
   .candle.flame-off .candle-flame {
     display: none;
   }
-  .dark-mode *{
-    /* Define your dark mode styles here */
-    background-color: #333;
-    color: #fff;
-}
-.dark-mode #split-screen{
-    /* Define your dark mode styles here */
-    background-color: #333;
-    color: #fff;
+
+
+  .theme-btn1 {
+    position: fixed;
+    top: 20%;
+    right: 2%;
+    cursor: pointer;
+    background-color: var(--color-grey-4);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow-1);
+    z-index: 999;
+    border:0px ;
+    transition: all 0.1s ease-in-out;
 }
 
-.dark-mode .p{
-  border:1px solid white;
-  box-shadow: 0 0 30px rgba(244, 241, 241, 0.1); 
-  border-radius: 15px 50px;
-  
+.theme-btn1:active {
+    transform: translateY(-5px);
 }
 
-.dark-mode input:focus,
-text:focus {
-  outline: none;
-  color: white;
+.theme-btn1 i {
+    font-size: 2rem;
+    color: var(--color-grey-2);
+    pointer-events: none;
 }
-.dark-mode input:focus ~ label, input:valid ~ label,
-text:focus ~ label,
-text:valid ~ label {
-  top: -16px;
-  font-size: 12px;
-  font-family:cursive;
-  color: white;
-}
-.dark-mode input:focus ~ .bar:before,
-textarea:focus ~ .bar:before {
-  width: 320px;
-  color: white;
-}
- </style>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  </head>
-  <body>
-    <div class="wrapper" onclick="toggleDarkMode()">
-      <div class="center">
-        <div class="candle" id="candle">
-          <div class="candle-flame"></div>
-          <div class="candle-wick"></div>
-          <div class="candle-wax"></div>
-          <div class="candle-stand"></div>
-        </div>
-      </div>
-    </div>
-    <div id="split-screen">
-      <div class="left">
-        <div class="p">
-        <p>In every feedback, there's a lesson waiting to be learned</p>
-        <p>ప్రతి ఫీడ్‌బ్యాక్‌లో, ఒక పాఠం నేపథ్యంలో ఉంది.</p>
-        <p>हर प्रतिक्रिया में, एक सीखने का सबक होता है।</p>
-        <p>ஒவ்வொரு பின்னணியிலும், ஒரு பாடம் காத்திருக்கின்றது</p>
-        <p> प्रत्येक फीडबॅकमध्ये, एक शिकण्यासाठी गोष्ट अपेक्षित आहे.</p>
-        <p>ಪ್ರತಿ ಮತವನ್ನು ಮರುನೋಟದಲ್ಲಿ ಪಾಠವನ್ನು ಕಲಿಯಬಹುದು.</p>
-        <p> പ്രതിസന്ധിയിൽ, പഠനം നിലവിലുള്ളു.</p>
-        <p>প্রতিটি প্রতিক্রিয়ায়, শেখার জন্য একটি পাঠ অপেক্ষা করছে</p>
-      </div>
-      </div>
-   
-      <div class="right">
-       
-        <form id="landingForm" onsubmit="return sendEmail()">
-          <div class="image-container1">
-            <img class="img3" src="passportsizephoto.jpg" alt="Passport Photo">
-            <i id="rot" class="fas fa-camera"></i>
-        </div>          <br><br>
-          <div class="group">
-              <input id="nameInput" type="text" required="required"/><span class="highlight"></span>
-              <label>Name:</label>
-          </div>
-          <div class="group">
-              <input id="emailInput" type="email" required="required"/><span class="highlight"></span>
-              <label>Email:</label>
-          </div>
-          <div class="group">
-              <input id="feedInput" type="text" required="required"/><span class="highlight"></span>
-              <label>Feedback:</label>
-          </div>
-          <p style="text-align: center;color: red;">* Kindly complete all the fields, otherwise the submit button will continue to move *</p>
-          <div class="button-dv">
-              <button id="submitButton" class="signup-button signup-button-submit" type="submit">SUBMIT</button>
-          </div>
-      </form>
-     
-      </div>
-    </div>
- 
-    <script>
-  function sendEmail() {
-    const name = document.getElementById('nameInput').value;
-    const feed = document.getElementById('feedInput').value;
-    const email = document.getElementById('emailInput').value; // Get the email from your form
-    console.log(email, name, feed);
+.dark-mode .theme-btn1 i {
+    font-size: 2rem;
+    color: white;
+    pointer-events: none;
+}
+
+.img-zoom-container {
+    position: fixed;
+    visibility: hidden;
+    background-color:black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+  }
+
+  .img-zoom-container img {
+    position: absolute;
+    top: 10px;
+    left: 40%;
+    /* transform: translate(-50%, -30%); */
+    width: 390px;
+    height: 43vh;;
+  } 
+  #myresult{
+    position: absolute;
+    top: 47vh;
+    width:370px;
+    left: 40%;
     
-    // Make an AJAX request to your backend endpoint
-    fetch("https://yoge0000.pythonanywhere.com/send-email", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ ma: email, fe: feed, na: name })
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("You will be receiving details about the feedback. Please check your email.");
-        } else {
-            throw new Error('Something went wrong');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-
-    return false; // Prevent form submission
 }
 
-
-      var a=0;
-      document.getElementById('submitButton').addEventListener('mousemove', function(event) {
-    const attuidInput = document.getElementById('nameInput').value.trim();
-    const nameInput = document.getElementById('emailInput').value.trim();
-    const personaInput = document.getElementById('feedInput').value.trim();
-   
-    const submitButton = document.getElementById('submitButton');
-    if (!attuidInput || !nameInput || !personaInput) {
-        const mouseX = event.clientX;
-        const submitButtonX = submitButton.getBoundingClientRect().left;
-        if(a==1){
-        const translationX = Math.max(100, mouseX - submitButtonX - 10);
-        submitButton.style.transform = `translateX(${translationX}px)`;
-        a=0;
+  .img-zoom-lens {
+    
+          position: absolute;
+          border: 1px solid #d4d4d4;
+          /*set the size of the lens:*/
+          visibility: hidden;
+          width: 40px;
+          height: 40px;
         }
-        else{
-        const translationX = Math.max(-100,-1*( mouseX - submitButtonX - 10));
-        submitButton.style.transform = `translateX(${translationX}px)`;
-        a=1;
+        
+        .img-zoom-result {
+          border: 1px solid #d4d4d4;
+          /*set the size of the result div:*/
+          width: 300px;
+          height: 300px;
+          
         }
-    } else {
-        submitButton.style.transform = 'none';
+        
+  .close-btn {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+  }
+  #rot1 {
+    margin-right: 10px;
+    font-size: 20px;
+    animation: rotateAnimation 1s linear infinite; /* Adjust duration and timing function as needed */
+  }
+  
+  @keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
     }
-});
- 
-function toggleDarkMode() {
-                var candle = document.getElementById('candle');
-                candle.classList.toggle('flame-off');
-                document.body.classList.toggle('dark-mode');
-                const isDarkModeEnabled = document.body.classList.contains('dark-mode');
-                localStorage.setItem('darkModeEnabled', isDarkModeEnabled);
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+#rot2 {
+    margin-left: 10px;
+    font-size: 20px;
+    animation: rotateAnimation 1s linear infinite; /* Adjust duration and timing function as needed */
+  }
+  
+  @keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+</head>
+<body>
+    
+    <!-- <div id="originalImageContainer" style="position: fixed; top: 0; left: 0;">
+        <img id="originalImage" style="display: none;">
+    </div> -->
+    <h1 style="text-align: center;">WELCOME TO THE PUZZLE PARADISE</h2>
+        <br>
+        <h3 style="font-size: 20px;font-family: Dancing Script, cursive;;text-align: center;margin: 3px;"><i id="rot1" class="fas fa-camera"></i>
+             Delve deeper into the magic of each image with our mesmerizing zooming feature. Experience the full beauty captured in every detail and also embark on a journey of discovery as you unravel the puzzle.
+            <i id="rot2" class="fas fa-camera"></i>
+        </h3>
+        <br>
+        <div class="centered-button-container">
+            <button onclick="ope()" class="full-image-button">Visual Symphony</button>
+        </div>
+        <div class="img-zoom-container">
+            <span class="close-btn" onclick="closeZoom()">×</span>
+            <img id="myimage" width="300" height="240" alt="Girl">
+            <div id="myresult" class="img-zoom-result"></div>
+          </div>
+        <div id="imageModal">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" class="modal-content">
+        </div>
+        <br>
+        <br>
+    <div class="container"><div>
+        <h2 style="text-align: center;">Navigate</h2><br>
+    <div id='fifteen'></div>
+</div>
+<div><h2 style="text-align: center;">Destination</h2><br>
+    <div id="fifteen1">    </div>
+</div>
+</div>
+<div class="wrapper" onclick="toggleDarkMode()">
+    <div class="center">
+      <div class="candle" id="candle">
+        <div class="candle-flame"></div>
+        <div class="candle-wick"></div>
+        <div class="candle-wax"></div>
+        <div class="candle-stand"></div>
+      </div>
+    </div>
+  </div>
+  <audio id="musicPlayer" src="spotifydown.com - Sri Krishna Flute.mp3" loop preload="auto"></audio>
+    <button id="musicButton" class="theme-btn1" onclick="toggleMusic()"><i class="fas fa-music"></i> <!-- Font Awesome icon for a musical note -->
+        </button>
+<br><br>
+<label for="difficulty" style="font-weight: bold; font-size: 14px; margin-right: 10px;">Craft Your Difficulty:</label>
+<input id="difficulty" onchange="setup.puzzle_fifteen.diff=this.value;fifteen_update();" value="100" class="input_text" type="text" style="padding: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+<div class="register">
+    <div class="field">
+      <input id="register" maxlength="21" type="text" /><label for="register"><span>Email Address</span></label><button>OK</button>
+    </div>
+  </div>
+<br><br>
+   <h2 style="text-align: center;">OR</h2>
+   <br><br>
+<button type="button" class="btn btn-primary" onclick="toggleNumber()">Simplify by arranging with Numbers </button>
+<br><br>
+<script>
+    
+    function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /* Create lens: */
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /* Insert lens: */
+  img.parentElement.insertBefore(lens, img);
+  /* Calculate the ratio between result DIV and lens: */
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /* Set background properties for the result DIV */
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /* Execute a function when someone moves the cursor over the image, or the lens: */
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /* And also for touch screens: */
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /* Prevent any other actions that may occur when moving over the image */
+    e.preventDefault();
+    /* Get the cursor's x and y positions: */
+    pos = getCursorPos(e);
+    /* Calculate the position of the lens: */
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /* Prevent the lens from being positioned outside the image: */
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /* Set the position of the lens: */
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /* Display what the lens "sees": */
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /* Get the x and y positions of the image: */
+    a = img.getBoundingClientRect();
+    /* Calculate the cursor's x and y coordinates, relative to the image: */
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /* Consider any page scrolling: */
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+
+    function ope(){
+        var imgdis=document.getElementById("myimage")
+        imgdis.src=gameId;
+        var element = document.getElementsByClassName("img-zoom-container")[0];
+if (element) {
+    element.style.visibility = "visible";
+    element.style.display = "block";
+    imageZoom("myimage", "myresult");
+}
+    }
+    function closeZoom() {
+    var element = document.getElementsByClassName("img-zoom-container")[0];
+if (element) {
+    element.style.visibility = "hidden";
+    element.style.display = "block";
+}
+  }
+    var musicPlayer = document.getElementById('musicPlayer');
+        var musicButton = document.getElementById('musicButton');
+        musicPlayer.volume = 0.4;
+        // Function to play music
+        function playMusic() {
+            musicPlayer.play();
+        }
+
+        // Check if the music should be played when the page is loaded
+        function checkAutoPlay() {
+            var promise = musicPlayer.play();
+            if (promise !== undefined) {
+                promise.then(function() {
+                    // Autoplay started
+                    console.log('Autoplay started');
+                }).catch(function(error) {
+                    // Autoplay was prevented
+                    console.error('Autoplay was prevented:', error);
+                });
             }
-    </script>
-  </body>
+        }
+
+        // Play the music when the page is loaded
+        window.addEventListener('load', function() {
+            checkAutoPlay();
+        });
+
+        // Function to toggle music playback when the button is clicked
+        function toggleMusic() {
+            if (musicPlayer.paused) {
+                playMusic();
+            } else {
+                musicPlayer.pause();
+            }
+        }
+    const params = new URLSearchParams(window.location.search);
+const gameId = params.get('gameId');
+    function openImage() {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = gameId; // Assign the photo URL directly to src
+    modal.style.display = 'block';
+}
+function closeImageModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+        function toggleNumber() {
+        setup.puzzle_fifteen.number = !setup.puzzle_fifteen.number; // Toggle the boolean value
+        fifteen_update(); // Update the puzzle display
+    }
+    function toggleDarkMode() {
+    var candle = document.getElementById('candle');
+      candle.classList.toggle('flame-off');
+    document.body.classList.toggle('dark-mode');
+    const isDarkModeEnabled = document.body.classList.contains('dark-mode');
+        }    
+
+     
+var setup={
+     puzzle_fifteen:{
+        diff:300, // number of movements of the slots for shuffling pictures
+        size:[512,640], // element size "fifteen" in pixels only
+        grid:[3,4], // the number of squares in the height and width of the picture
+        fill:false, // Stretching the area with the game to fit the element is recommended for fullscreen
+        number:false, // Slot sequence number
+        art:{
+            url:gameId, // path to the picture (you can use any format of supported browsers, gif-animation of svg)
+            ratio:false // enlarge the picture in height or width
+        },
+        // optional elements
+        keyBoard:true, // Control using the keys on the keyboard
+        gamePad:true, // Control using the joystick on the Gamepad
+        time:0.1, // block move animation time
+        style:"background-color:#c4cebb;display:grid;justify-items:center;align-items:center;font-family:Arial;color:#fff;border-radius:12px;font-size:32px;" // style for puzzle square
+     }
+}
+
+// function loadOriginalImage() {var img = document.getElementById("originalImage");
+//             img.src = gameId; // Set the source of the original image
+//             img.onload = function () {
+//                 // Calculate the dimensions of the puzzle pieces
+//                 var puzzleSize = 4; // Assuming a 4x4 puzzle
+//                 var pieceWidth = img.width / puzzleSize;
+//                 var pieceHeight = img.height / puzzleSize;
+                
+//                 // Display only the part of the image that corresponds to the puzzle size
+//                 img.style.clip = `rect(0px, ${pieceWidth}px, ${pieceHeight}px, 0px)`;
+//                 img.style.display = "block"; // Show the original image
+//             }
+// }
+
+// // Call the function to load the original image
+// loadOriginalImage();
+
+slot_style.value=setup.puzzle_fifteen.style;
+var img_file=document.getElementById('img_file'),img=document.getElementById("art"),file;
+img_file.addEventListener('change',loadFiles);
+function loadFiles(e){
+    file=img_file.files[0];
+    adden_file();
+}
+function adden_file(){
+    setup.puzzle_fifteen.art.url=window.URL.createObjectURL(file)
+    img.src=setup.puzzle_fifteen.art.url;
+    img.onload=function(){setup.puzzle_fifteen.size=[img.width,img.height];auto_grid();auto_style();fifteen_update1();fifteen_update();}
+}
+function auto_grid(){
+    var s=setup.puzzle_fifteen
+    if(s.size[1]<s.size[0]){s.grid=[Math.round(s.size[0]/(s.size[1]/4))-1,3]}
+    else{s.grid=[3,Math.round(s.size[1]/(s.size[0]/4))-1]}
+    grid_width.value=s.grid[0];
+    grid_height.value=s.grid[1];
+    width.value=s.size[0];
+    height.value=s.size[1];
+}
+function auto_style(){
+    var s=setup.puzzle_fifteen,v,i;
+    if(s.size[1]<s.size[0]){v=Math.round((s.size[0]/s.grid[0])/16)}
+    else{v=Math.round((s.size[1]/s.grid[1])/16)}
+    d=s.style.split(";");
+    for(i=0;i<d.length;i++){
+        if(d[i].includes("border-radius")){s.style=s.style.replace(d[i],"border-radius:"+Math.round(v*1.5)+"px")}
+        else if(d[i].includes("font-size")){s.style=s.style.replace(d[i],"font-size:"+(v*3)+"px")}
+    }slot_style.value=s.style;
+}
+function fifteen_update(){
+    f.innerHTML = "";
+    ceation_slots();
+}
+function fifteen_update1()
+{
+    f1.innerHTML = "";
+     ceation_slots1();
+}
+
+function fifteen_build(){
+    var reader=new FileReader();
+    if(file){reader.readAsDataURL(file);}else{alert('Please upload a file with a picture')}
+    reader.onload=function(){setup.puzzle_fifteen.art.url=reader.result;gen_file();}
+    reader.onerror=function(error){alert('Error: '+error);}
+    function gen_file(){
+        var url="fifteen_puzzle.js";
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+            if(this.readyState==4&&this.status==200){
+                var html="data:text/json;charset=utf-8,"+encodeURIComponent("<!DOCTYPE html>\n<html>\n<head>\n<style>\n body{height:97vh;padding:0;display:grid;align-content:center;justify-content:center;}\n</style>\n</head>\n<body>\n<div id='fifteen'></div>\n<script>\n"+this.responseText.replace("setup.puzzle_fifteen",JSON.stringify(setup.puzzle_fifteen,null,'\t'))+"\n<\/script>\n<\/body>\n<\/html>");
+                var a=document.getElementById('dwonload');
+                a.setAttribute("href", html );
+                a.setAttribute("download","index.html");
+                a.click();
+            }
+        };
+        xmlhttp.open("GET",url,true);
+        xmlhttp.send();
+        xmlhttp.onerror=function(){if(this.status==0){alert('runetime not loaded');}}
+    }
+}
+var drop = {
+    init:function(){
+        if (window.File&&window.FileReader&&window.FileList&&window.Blob) {
+            window.addEventListener("dragover",function(e){
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            window.addEventListener("drop",function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                file=e.dataTransfer.files[0];
+                adden_file();
+            });
+        }
+    },
+};
+window.addEventListener("DOMContentLoaded", drop.init);
+</script>
+<script src="fifteen_puzzle.js"></script> <!--path to file engine-->
+</body>
 </html>
