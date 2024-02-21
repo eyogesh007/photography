@@ -471,10 +471,12 @@ h3{
   margin: 30px;
 }
 
+
 .candle {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #333;
   }
 
   .candle-flame {
@@ -499,7 +501,13 @@ h3{
     border-radius: 6px;
     box-shadow: inset -7.5px 0px 0px -5px #d8deed;
   }
-
+  .dark-mode .candle-wax {
+    width: 6px;
+    height: 25px;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: inset -7.5px 0px 0px -5px #d8deed;
+  }
   .candle-stand {
     width: 10px;
     height: 4px;
@@ -543,7 +551,6 @@ h3{
   .candle.flame-off .candle-flame {
     display: none;
   }
-
   .dark-mode *{
     /* Define your dark mode styles here */
     background-color: #333;
@@ -614,27 +621,24 @@ textarea:focus ~ .bar:before {
    
       <div class="right">
        
-        <form id="landingForm">
+        <form id="landingForm" onsubmit="return sendEmail()">
           <div class="image-container1">
             <img class="img3" src="passportsizephoto.jpg" alt="Passport Photo">
             <i id="rot" class="fas fa-camera"></i>
         </div>          <br><br>
           <div class="group">
-              <input id="attuidInput" type="text" required="required"/><span class="highlight"></span>
+              <input id="nameInput" type="text" required="required"/><span class="highlight"></span>
               <label>Name:</label>
           </div>
           <div class="group">
-              <input id="nameInput" type="email" required="required"/><span class="highlight"></span>
+              <input id="emailInput" type="email" required="required"/><span class="highlight"></span>
               <label>Email:</label>
           </div>
           <div class="group">
-              <input id="personaInput" type="text" required="required"/><span class="highlight"></span>
+              <input id="feedInput" type="text" required="required"/><span class="highlight"></span>
               <label>Feedback:</label>
           </div>
-          <div class="group">
-            <input id="personaInput" type="text" required="required"/><span class="highlight"></span>
-            <label>Any thing to say:</label>
-        </div>
+          <p style="text-align: center;color: red;">* Kindly complete all the fields, otherwise the submit button will continue to move *</p>
           <div class="button-dv">
               <button id="submitButton" class="signup-button signup-button-submit" type="submit">SUBMIT</button>
           </div>
@@ -644,11 +648,40 @@ textarea:focus ~ .bar:before {
     </div>
  
     <script>
+  function sendEmail() {
+    const name = document.getElementById('nameInput').value;
+    const feed = document.getElementById('feedInput').value;
+    const email = document.getElementById('emailInput').value; // Get the email from your form
+    console.log(email, name, feed);
+    
+    // Make an AJAX request to your backend endpoint
+    fetch("https://yoge0000.pythonanywhere.com/send-email", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ma: email, fe: feed, na: name })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("You will be receiving details about the feedback. Please check your email.");
+        } else {
+            throw new Error('Something went wrong');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    return false; // Prevent form submission
+}
+
+
       var a=0;
       document.getElementById('submitButton').addEventListener('mousemove', function(event) {
-    const attuidInput = document.getElementById('attuidInput').value.trim();
-    const nameInput = document.getElementById('nameInput').value.trim();
-    const personaInput = document.getElementById('personaInput').value.trim();
+    const attuidInput = document.getElementById('nameInput').value.trim();
+    const nameInput = document.getElementById('emailInput').value.trim();
+    const personaInput = document.getElementById('feedInput').value.trim();
    
     const submitButton = document.getElementById('submitButton');
     if (!attuidInput || !nameInput || !personaInput) {
