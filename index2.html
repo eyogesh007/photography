@@ -750,6 +750,7 @@ font-size: 25px;
         $(this).nextAll().removeClass('selected');
 
         console.log('Selected rating:', value);
+        console.log(document.querySelector('.rating > span.selected').getAttribute('data-value'),5-document.querySelector('.rating > span.selected').getAttribute('data-value'))
 
       });
 
@@ -765,7 +766,7 @@ font-size: 25px;
     const selectedRating = document.querySelector('.rating > span.selected').getAttribute('data-value');
     const rating = 5 - selectedRating;
 
-    console.log(email, name, feed, value);
+    console.log(email, name, feed, rating);
 
     // Make an AJAX request to your backend endpoint
     fetch("https://yoge0000.pythonanywhere.com/send-email", {
@@ -773,7 +774,7 @@ font-size: 25px;
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ma: email, fe: feed, na: name, rating: value })
+        body: JSON.stringify({ ma: email, fe: feed, na: name, rating: rating })
     })
     .then(response => {
         if (response.ok) {
