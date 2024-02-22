@@ -776,7 +776,7 @@ font-size: 25px;
     })
     .then(response => {
         if (response.ok) {
-          showNotification("You will receive feedback details via email. Please check your inbox..");
+          alert("You will receive feedback details via email. Please check your inbox..");
         } else {
             throw new Error('Something went wrong');
         }
