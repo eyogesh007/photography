@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PersonaPuzzle</title>
+    <title>Yogesh phorotraphy portfolio</title>
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="/src/styles/leaderboard.css" />
     <link rel="stylesheet" href="/src/styles/lobby.css" />
+    <link href="/YOUR_PATH/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58xMDH/srOy/56env+enp7/np6e/56env+enp7/np6e/56env+enp7/np6e/56env+enp7/np6e/56env8xMDH/S0lL//Du8P/W19b/1tfW/9bX1v/W19b/1tfW/9bX1v+tra3/RkVG/0ZFRv9EQ0T/w8TD/8bHxv+2t7b/QUBB/0tJS//w7vD/1tfW/9bX1v/W19b/1tfW/9bX1v+oqaj/kI6Q/+/r7//W19b/yMnI/1BQUP+2t7b/tre2/0FAQf9LSUv/8O7w/8bHxv/W19b/1tfW/9bX1v/Cw8L/urm6/+/r7//Gxcb/jo+O/7i5uP+9vr3/VlZW/7a3tv9BQEH/S0lL/+Ph4//AwcD/1NXU/9bX1v/W19b/o6Sj/8zNzP/n4+f/mZqZ/8zNzP8xMDH/1NXU/5aWlv9/f3//QUBB/0tJS//w7vD/q62r/9TV1P/W19b/1tfW/6Oko//Ky8r/0dLR/4SGhP+EhoT/hIaE/+/r7/+3ubf/np+e/0FAQf9LSUv/6ujq/8bHxv/U1dT/1tfW/9bX1v/Cw8L/pael/8DBwP+8vbz/o6Sj/8bFxv+V4fX/n5+f/56fnv9BQEH/S0lL//Du8P/Gx8b/1NXU/9bX1v/W19b/wsPC/1tbW/9vb2//xsfG/9bX1v/v6+//Fsv1/7y9vP+2t7b/QUBB/0tJS//w7vD/1tfW/9bX1v/W19b/1tfW/6Oko/+EhoT/Ozs7/4mLif+OkI7/G9D6/wDz//9Z2fj/xcTF/0FAQf8xMDH/zMjM/0lHSf9GRUb/MTAx/+Xi5f/l4uX/5eLl/+Xi5f/l4uX/5eLl/+Xi5f8b0Pr/zMvM/8zLzP8xMDH/Hx4fnzEwMf+opaj/mJiY/29vb/8fHh+fHx4fnx8eH58fHh+fHx4fnx8eH58fHh+fBm6Gnx8eH58fHh+fHx4fnwAAAAAAAAAAEhISYBISEmAMDAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAA==" rel="icon" type="image/x-icon">
+
     <style>
       *{
         background-color:whitesmoke;
@@ -706,7 +709,7 @@ font-size: 25px;
       
           </div>
 
-          <p style="text-align: center;color: red;">* Kindly complete all the fields, otherwise the submit button will continue to move *</p>
+          <p style="text-align: center;color: red;">* Please ensure all fields are filled out. Otherwise, the submit button will remain active *</p>
           <div class="button-dv">
               <button id="submitButton" class="signup-button signup-button-submit" type="submit">SUBMIT</button>
           </div>
@@ -773,7 +776,7 @@ font-size: 25px;
     })
     .then(response => {
         if (response.ok) {
-            alert("You will be receiving details about the feedback. Please check your email.");
+          showNotification("You will receive feedback details via email. Please check your inbox..");
         } else {
             throw new Error('Something went wrong');
         }
@@ -786,6 +789,20 @@ font-size: 25px;
 }
 
 
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = message;
+
+    // Append notification to the bottom of the page
+    document.body.appendChild(notification);
+
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
 
       var a=0;
       document.getElementById('submitButton').addEventListener('mousemove', function(event) {
