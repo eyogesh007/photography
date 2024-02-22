@@ -13,6 +13,13 @@
     <style>
       *{
         background-color:whitesmoke;
+        margin: 0;
+      }
+      .dark-mode *{
+        background-color:#333;
+      }
+      .dark-mode body{
+        background-color:#333;
       }
 #rot{
   animation: rotateAnimation 2s linear infinite;
@@ -87,7 +94,7 @@ h3 {
   border:1px solid black;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); 
   border-radius: 15px 50px;
-  
+  padding: 20px;
 }
 .left p {
   margin: 20px;
@@ -594,11 +601,11 @@ textarea:focus ~ .bar:before {
 border:1px solid white;}
 /* Ensure proper spacing and add units to border */
 .rating {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 8px;
   width: fit-content;
-  padding-left: 33px;
-  padding-right: 33px;
+  padding-left: 35px;
+  padding-right: 35px;
   unicode-bidi: bidi-override;
   direction: ltr;
   text-align: center;
@@ -692,7 +699,7 @@ span {
             <span data-value="5" style="color: #ccc;">☆</span>
           </div>
           
-
+<br>
           <p style="text-align: center;color: red;">* Please ensure all fields are filled out. Otherwise, the submit button will remain moving *</p>
           <div class="button-dv">
               <button id="submitButton" class="signup-button signup-button-submit" type="submit">SUBMIT</button>
