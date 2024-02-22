@@ -709,7 +709,7 @@ font-size: 25px;
       
           </div>
 
-          <p style="text-align: center;color: red;">* Please ensure all fields are filled out. Otherwise, the submit button will remain active *</p>
+          <p style="text-align: center;color: red;">* Please ensure all fields are filled out. Otherwise, the submit button will remain moving *</p>
           <div class="button-dv">
               <button id="submitButton" class="signup-button signup-button-submit" type="submit">SUBMIT</button>
           </div>
@@ -789,20 +789,7 @@ font-size: 25px;
 }
 
 
-function showNotification(message) {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.classList.add('notification');
-    notification.textContent = message;
 
-    // Append notification to the bottom of the page
-    document.body.appendChild(notification);
-
-    // Remove notification after 3 seconds
-    setTimeout(() => {
-        notification.remove();
-    }, 3000);
-}
 
       var a=0;
       document.getElementById('submitButton').addEventListener('mousemove', function(event) {
