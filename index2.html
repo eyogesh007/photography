@@ -592,60 +592,44 @@ textarea:focus ~ .bar:before {
 }
 .dark-mode .rating {
 border:1px solid white;}
+/* Ensure proper spacing and add units to border */
 .rating {
-border:2px solid #ccc;
-border-radius: 8px;
-width: fit-content;
-padding-left: 33px;
-padding-right: 33px;
-unicode-bidi: bidi-override;
-
-direction:ltr;
-
-text-align: center;
-
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: fit-content;
+  padding-left: 33px;
+  padding-right: 33px;
+  unicode-bidi: bidi-override;
+  direction: ltr;
+  text-align: center;
 }
 
+/* Add space after property name */
 .rating > span:hover:before,
-
 .rating > span.selected:before {
-
-content: "\2605";
-
-position: absolute;
-
-left: 1;
-
-color: gold;
-
+  content: "\2605";
+  position: absolute;
+  left: 1;
+  color: gold;
 }
 
+/* Add space after property name */
 .rating > span {
-
-display: inline-block;
-
-position: relative;
-
-width: 1.1em;
-
-cursor: pointer;
-
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  cursor: pointer;
 }
 
+/* Add space after property name */
 .rating > span:hover,
-
 .rating > span.selected {
-
-color: transparent;
-
+  color: transparent;
 }
 
-span{
-
-font-size: 25px;
-
+span {
+  font-size: 25px;
 }
-
 
 
  </style>
@@ -702,12 +686,12 @@ font-size: 25px;
           </div>
           <div class="rating">
             <span data-value="1" style="color: #ccc;">☆</span>
-            <span data-value="2"style="color: #ccc;">☆</span>
-            <span data-value="3"style="color: #ccc;">☆</span>
-            <span data-value="4"style="color: #ccc;">☆</span>
-            <span data-value="5"style="color: #ccc;">☆</span>
-      
+            <span data-value="2" style="color: #ccc;">☆</span>
+            <span data-value="3" style="color: #ccc;">☆</span>
+            <span data-value="4" style="color: #ccc;">☆</span>
+            <span data-value="5" style="color: #ccc;">☆</span>
           </div>
+          
 
           <p style="text-align: center;color: red;">* Please ensure all fields are filled out. Otherwise, the submit button will remain moving *</p>
           <div class="button-dv">
@@ -720,7 +704,7 @@ font-size: 25px;
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <script>
-
+var value=0
     $(document).ready(function () {
 
       $('.rating > span').mouseenter(function () {
@@ -741,32 +725,25 @@ font-size: 25px;
 
       $('.rating > span').click(function () {
 
-        var value = $(this).attr('data-value');
+         value = $(this).attr('data-value');
 
         $(this).addClass('selected');
 
         $(this).prevAll().addClass('selected');
 
         $(this).nextAll().removeClass('selected');
-
-        console.log('Selected rating:', value);
-        console.log(document.querySelector('.rating > span.selected').getAttribute('data-value'),5-document.querySelector('.rating > span.selected').getAttribute('data-value'))
-
-      });
+     });
 
     });
 
-  </script>
-    <script>
       
       function sendEmail() {
+        console.log(value)
     const name = document.getElementById('nameInput').value;
     const feed = document.getElementById('feedInput').value;
     const email = document.getElementById('emailInput').value;
-    const selectedRating = document.querySelector('.rating > span.selected').getAttribute('data-value');
-    const rating = 5 - selectedRating;
 
-    console.log(email, name, feed, rating);
+    console.log(email, name, feed, value);
 
     // Make an AJAX request to your backend endpoint
     fetch("https://yoge0000.pythonanywhere.com/send-email", {
@@ -774,7 +751,7 @@ font-size: 25px;
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ma: email, fe: feed, na: name, rating: rating })
+        body: JSON.stringify({ ma: email, fe: feed, na: name, rating: value })
     })
     .then(response => {
         if (response.ok) {
