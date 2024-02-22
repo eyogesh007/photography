@@ -587,6 +587,64 @@ textarea:focus ~ .bar:before {
   width: 320px;
   color: white;
 }
+.dark-mode .rating {
+border:1px solid white;}
+.rating {
+border:2px solid #ccc;
+border-radius: 8px;
+width: fit-content;
+padding-left: 33px;
+padding-right: 33px;
+unicode-bidi: bidi-override;
+
+direction:ltr;
+
+text-align: center;
+
+}
+
+.rating > span:hover:before,
+
+.rating > span.selected:before {
+
+content: "\2605";
+
+position: absolute;
+
+left: 1;
+
+color: gold;
+
+}
+
+.rating > span {
+
+display: inline-block;
+
+position: relative;
+
+width: 1.1em;
+
+cursor: pointer;
+
+}
+
+.rating > span:hover,
+
+.rating > span.selected {
+
+color: transparent;
+
+}
+
+span{
+
+font-size: 25px;
+
+}
+
+
+
  </style>
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -607,6 +665,7 @@ textarea:focus ~ .bar:before {
     </div>
     <div id="split-screen">
       <div class="left">
+        
         <div class="p">
         <p>In every feedback, there's a lesson waiting to be learned</p>
         <p>ప్రతి ఫీడ్‌బ్యాక్‌లో, ఒక పాఠం నేపథ్యంలో ఉంది.</p>
@@ -638,6 +697,15 @@ textarea:focus ~ .bar:before {
               <input id="feedInput" type="text" required="required"/><span class="highlight"></span>
               <label>Feedback:</label>
           </div>
+          <div class="rating">
+            <span data-value="1" style="color: #ccc;">☆</span>
+            <span data-value="2"style="color: #ccc;">☆</span>
+            <span data-value="3"style="color: #ccc;">☆</span>
+            <span data-value="4"style="color: #ccc;">☆</span>
+            <span data-value="5"style="color: #ccc;">☆</span>
+      
+          </div>
+
           <p style="text-align: center;color: red;">* Kindly complete all the fields, otherwise the submit button will continue to move *</p>
           <div class="button-dv">
               <button id="submitButton" class="signup-button signup-button-submit" type="submit">SUBMIT</button>
@@ -646,21 +714,62 @@ textarea:focus ~ .bar:before {
      
       </div>
     </div>
- 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      $('.rating > span').mouseenter(function () {
+
+        var value = $(this).attr('data-value');
+
+        $(this).addClass('hovered');
+
+        $(this).prevAll().addClass('hovered');
+
+      });
+
+      $('.rating').mouseleave(function () {
+
+        $('.rating > span').removeClass('hovered');
+
+      });
+
+      $('.rating > span').click(function () {
+
+        var value = $(this).attr('data-value');
+
+        $(this).addClass('selected');
+
+        $(this).prevAll().addClass('selected');
+
+        $(this).nextAll().removeClass('selected');
+
+        console.log('Selected rating:', value);
+
+      });
+
+    });
+
+  </script>
     <script>
-  function sendEmail() {
+      
+      function sendEmail() {
     const name = document.getElementById('nameInput').value;
     const feed = document.getElementById('feedInput').value;
-    const email = document.getElementById('emailInput').value; // Get the email from your form
-    console.log(email, name, feed);
-    
+    const email = document.getElementById('emailInput').value;
+    const rating = document.querySelector('.rating > span.selected').getAttribute('data-value');
+
+    console.log(email, name, feed, rating);
+
     // Make an AJAX request to your backend endpoint
     fetch("https://yoge0000.pythonanywhere.com/send-email", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ma: email, fe: feed, na: name })
+        body: JSON.stringify({ ma: email, fe: feed, na: name, rating: rating })
     })
     .then(response => {
         if (response.ok) {
@@ -675,6 +784,7 @@ textarea:focus ~ .bar:before {
 
     return false; // Prevent form submission
 }
+
 
 
       var a=0;
