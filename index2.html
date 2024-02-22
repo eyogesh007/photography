@@ -765,7 +765,7 @@ font-size: 25px;
     const selectedRating = document.querySelector('.rating > span.selected').getAttribute('data-value');
     const rating = 5 - selectedRating;
 
-    console.log(email, name, feed, rating);
+    console.log(email, name, feed, value);
 
     // Make an AJAX request to your backend endpoint
     fetch("https://yoge0000.pythonanywhere.com/send-email", {
@@ -773,7 +773,7 @@ font-size: 25px;
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ ma: email, fe: feed, na: name, rating: rating })
+        body: JSON.stringify({ ma: email, fe: feed, na: name, rating: value })
     })
     .then(response => {
         if (response.ok) {
