@@ -762,7 +762,8 @@ font-size: 25px;
     const name = document.getElementById('nameInput').value;
     const feed = document.getElementById('feedInput').value;
     const email = document.getElementById('emailInput').value;
-    const rating = document.querySelector('.rating > span.selected').getAttribute('data-value');
+    const selectedRating = document.querySelector('.rating > span.selected').getAttribute('data-value');
+    const rating = 6 - selectedRating;
 
     console.log(email, name, feed, rating);
 
